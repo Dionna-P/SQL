@@ -1,0 +1,32 @@
+--Create a mug store database.
+
+CREATE TABLE MugShop (
+id integer primary key, 
+Name TEXT, 
+"Price (US Dollars)" REAL, 
+"Size (oz)" INTEGER, 
+Category TEXT, 
+Color TEXT); 
+
+INSERT INTO MugShop VALUES (1, "Alien Superstar", 23.95, 11, "Pop Culture", "White"); 
+INSERT INTO MugShop VALUES (2, "Alien Superstar", 24.95, 11, "Pop Culture", "Black"); 
+INSERT INTO MugShop VALUES (3, "Alien Superstar", 25.95, 15, "Pop Culture", "White"); 
+INSERT INTO MugShop VALUES (4, "Alien Superstar", 25.95, 15, "Pop Culture", "Black");
+INSERT INTO MugShop VALUES (5, "Goddess Brew", 23.95, 11, "Pop Culture", "White");
+INSERT INTO MugShop VALUES (6, "Goddess Brew", 24.95, 11, "Pop Culture", "Black"); 
+INSERT INTO MugShop VALUES (7, "Goddess Brew", 25.95, 15, "Pop Culutre", "White"); 
+INSERT INTO MugShop VALUES (8, "Goddess Brew", 25.95, 15, "Pop Culture", "Black");
+INSERT INTO MugShop VALUES (9, "Get Ish Done", 23.95, 11, "Motivational", "White");
+INSERT INTO MugShop VALUES (10, "Get Ish Done", 24.95, 11, "Motivational", "Black"); 
+INSERT INTO MugShop VALUES (11, "Get Ish Done", 25.95, 15, "Motivational", "White");
+INSERT INTO MugShop VALUES (12, "Get Ish Done", 25.95, 15, "Motivational", "Black"); 
+INSERT INTO MugShop VALUES (13, "She Believed She Could", 23.95, 11, "Inspirational", "White");
+INSERT INTO MugShop VALUES (14, "She Believed She Could", 24.95, 11, "Inspirational", "Black"); 
+INSERT INTO MugShop VALUES (15, "She Believed She Could", 25.95, 15, "Inspirational", "White"); 
+INSERT INTO MugShop VALUES (16, "She Believed She Could", 25.95, 15, "Inspirational", "Black"); 
+
+--Display the database ordered by price.
+SELECT * from MugShop ORDER by "Price (US Dollars)";
+
+--How many different designs are available?
+SELECT COUNT(DISTINCT Name) AS "Unique Designs" From MugShop;
