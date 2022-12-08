@@ -1,0 +1,28 @@
+--Create a mug store database.
+
+CREATE TABLE MugStore(id INTEGER PRIMARY KEY, MugDesign text, "Size(oz)" INTEGER, Color TEXT, Price REAL); 
+
+INSERT INTO MugStore
+VALUES(1, "Good morning, gorgeous", 11, "White", 15.99),
+(2, "Good morning, gorgeous", 15, "White", 18.99),
+(3, "TGIF", 11, "White", 15.99),
+(4, "TGIF", 15, "White", 18.99),
+(5, "Make Everyday Count", 11, "White", 15.99),
+(6, "Make Everyday Count", 15, "White", 18.99),
+(7, "Progress > Perfection", 11, "White", 15.99),
+(8, "Progress > Perfection", 15, "White", 18.99),
+(9, "Goal-getter", 11, "White", 15.99), 
+(10, "Goal-getter", 15, "White", 18.99), 
+(11, "Dream.Believe.Achieve", 11, "White", 15.99),
+(12, "Dream.Believe.Achieve", 15, "White", 18.99),
+(13, "Keep going.", 11, "White", 15.99),
+(14, "Keep going.", 15, "White", 18.99),
+(15, "Bet on yourself.", 11, "White", 15.99),
+(16, "Bet on yourself.", 15, "White", 18.99);  
+
+--Display the database ordered by price.
+SELECT * FROM Mugstore ORDER BY Price;
+
+--How many different designs are available?
+SELECT COUNT(DISTINCT MugDesign) AS "Number of Designs"
+    FROM MugStore; 
