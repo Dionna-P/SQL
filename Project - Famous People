@@ -1,0 +1,69 @@
+/* Create tables about the people, their occupation, the number of grammys and their friendships. */
+
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER);
+
+INSERT INTO famous_people (name, age) VALUES ("Beyonce", 41);
+INSERT INTO famous_people (name, age) VALUES ("Lizzo", 34);
+INSERT INTO famous_people (name, age) VALUES ("Sanaa Lathan", 41);
+INSERT INTO famous_people (name, age) VALUES ("Ernessa T. Carter", NULL);
+INSERT INTO famous_people (name, age) VALUES ("SZA", 33);
+INSERT INTO famous_people (name, age) VALUES ("Kelly Rowland", 41);
+
+CREATE TABLE occupation (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    name TEXT);
+    
+INSERT INTO occupation (person_id, name) VALUES (3, "actress");
+INSERT INTO occupation (person_id, name) VALUES (1, "singer");
+INSERT INTO occupation (person_id, name) VALUES (6, "actress");
+INSERT INTO occupation (person_id, name) VALUES (5, "singer");
+INSERT INTO occupation (person_id, name) VALUES (2, "singer");
+INSERT INTO occupation (person_id, name) VALUES (6, "singer");
+INSERT INTO occupation (person_id, name) VALUES (4, "author");
+INSERT INTO occupation (person_id, name) VALUES (1, "actress");
+
+CREATE TABLE grammys (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    famous_person_id INTEGER,
+    number_awarded INTEGER);
+
+INSERT INTO grammys (famous_person_id, number_awarded)
+    VALUES (1, 25);
+INSERT INTO grammys (famous_person_id, number_awarded)
+    VALUES (6, 2);
+INSERT INTO grammys (famous_person_id, number_awarded)
+    VALUES (2, 3);
+INSERT INTO grammys (famous_person_id, number_awarded)
+    VALUES (5, 1);
+    
+CREATE TABLE friends (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    famous_person1_id INTEGER,
+    famous_person2_id INTEGER);
+    
+INSERT INTO friends (famous_person1_id, famous_person2_id)
+    VALUES (1, 6);
+INSERT INTO friends (famous_person1_id, famous_person2_id)
+    VALUES (2, 5);
+
+/*Display each famous persons name next to their occupation.*/
+
+SELECT famous_people.name, occupation.name FROM famous_people
+    JOIN occupation
+     ON famous_people.id = occupation.person_id;
+     
+/*Display the famous people and the number of grammys they were awarded, including famous people that haven't received an award.*/
+
+SELECT famous_people.name, grammys.number_awarded
+    FROM famous_people
+    LEFT OUTER JOIN grammys
+    ON famous_people.id = famous_person_id;
+    
+/*Display the names of each pair of friends, based on the data in the friends table.*/    
+
+SELECT a.name, b.name FROM friends
+JOIN famous_people a
+ON friends.famous_person1_id = a.id
+JOIN famous_people b
+ON friends.famous_person2_id = b.id;
