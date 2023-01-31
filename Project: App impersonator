@@ -1,0 +1,20 @@
+/* Create a  table and use UPDATE and DELETE to edit data? */
+
+CREATE TABLE food_logs (
+    id INTEGER PRIMARY KEY,
+    date TEXT,
+    meal_category TEXT,
+    content TEXT,
+    calories INTEGER);
+
+INSERT INTO food_logs (date, meal_category, content, calories) VALUES ("2023-01-23", "lunch", "hamburger helper", 557);
+INSERT INTO food_logs (date, meal_category, content, calories) VALUES ("2023-01-23", "dinner", "turkey burgers and fries", 638);
+INSERT INTO food_logs (date, meal_category, content, calories) VALUES ("2023-01-24", "breakfast", "eggs, sausage & toast", 520);
+INSERT INTO food_logs (date, meal_category, content, calories) VALUES ("2023-01-24", "lunch", "spicy chicken wrap", 372);
+INSERT INTO food_logs (date, meal_category, content, calories) VALUES ("2023-01-24", "dinner", "dirty rice", 391);
+
+/* Update content on 2023-01-23 to "turkey burger and side salad". */
+UPDATE food_logs SET content = "turkey burger and side salad", calories = 540 WHERE id = 2; 
+
+/* DELETE all breakfast entries from the log. */
+DELETE FROM food_logs WHERE meal_category = "breakfast";
