@@ -20,7 +20,7 @@ WHERE length(order_id) = 6
 AND order_id <> 'Order ID'
 AND order_id IN (SELECT orderID FROM BIT_DB.FebSales); 
 
-/*#4. Which product was the cheapest one sold in January, and what was the price?
+/*#4. Which product was the cheapest one sold in January, and what was the price?*/
 SELECT DISTINCT product, MIN(price) 
 FROM BIT_DB.JanSales Jan 
 GROUP BY product, price
