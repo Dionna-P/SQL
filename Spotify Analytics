@@ -50,7 +50,6 @@ danceability > (SELECT AVG(danceability) FROM BIT_DB.Spotifydata) AND
 energy > (SELECT AVG(energy) FROM BIT_DB.Spotifydata);
 
 #Lastly, I listed if each song is at, above, or below the average danceability of all songs. 
-
 SELECT track_name, danceability, 
 CASE
     WHEN danceability > (SELECT AVG(danceability) FROM BIT_DB.Spotifydata) THEN 'Above Average'
