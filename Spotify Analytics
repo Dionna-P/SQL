@@ -28,7 +28,7 @@ time_signature integer NOT NULL
 
 #Next, I explored the data using the following SQL. 
 
-#First I determined the number of top songs each artist has.
+#First I determined the number of top songs each artist has and arranged them from greatest to least.
 SELECT artist_name, COUNT(*)
 FROM BIT_DB.Spotifydata
 GROUP BY artist_name
