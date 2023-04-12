@@ -1,4 +1,4 @@
-#In this SQL, I'm querying a database with multiple tables in it to quantify statistics and  about customer and order data. 
+#In this SQL, I'm querying a database with multiple tables in it to perform analytics about customer and order data. 
 
 1. /*What is the most popular genre purchased in the US?*/
 SELECT chinook.genres.Name, chinook.invoices.BillingCountry, COUNT(chinook.genres.Name) AS 'Genre Count'
