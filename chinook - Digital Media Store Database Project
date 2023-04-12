@@ -1,0 +1,37 @@
+
+
+1. /*What is the most popular genre purchased in the US?*/
+SELECT chinook.genres.Name, chinook.invoices.BillingCountry, COUNT(chinook.genres.Name) AS 'Genre Count'
+FROM chinook.genres
+JOIN chinook.tracks ON chinook.genres.GenreId = chinook.tracks.GenreId
+JOIN chinook.invoices ON chinook.invoices.invoiceid = chinook.invoice_items.invoiceid
+JOIN chinook.invoice_items ON chinook.invoice_items.trackid = chinook.tracks.TrackId
+WHERE chinook.invoices.BillingCountry = 'USA'
+GROUP BY chinook.genres.Name
+ORDER BY COUNT(chinook.genres.Name) DESC
+LIMIT 1;
+
+2. /*Which country has the most sales?*/
+SELECT BillingCountry, SUM (Total) AS Total_Sales
+FROM chinook.invoices
+GROUP BY BillingCountry
+ORDER BY SUM(Total) DESC
+LIMIT 1;
+
+3. /*What are the total sales for 2009?*/
+SELECT SUM (Total) AS Total_Sales
+FROM chinook.invoices
+WHERE InvoiceDate LIKE "2009%";
+
+4. /*Show the employees who are Sales Agents.*/
+SELECT * FROM chinook.employees;
+SELECT LastName, FirstName
+FROM chinook.employees
+WHERE Title = 'Sales Support Agent';
+
+5. /*Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.*/
+SELECT chinook.media_types.Name AS Media_type, chinook.genres.Name AS Genre, chinook.tracks.Name AS Track_Name, chinook.albums.Title AS Album_Title
+FROM chinook.media_types
+JOIN chinook.tracks ON chinook.media_types.mediatypeid = chinook.tracks.mediatypeid
+JOIN chinook.genres ON chinook.genres.GenreId = chinook.tracks.GenreId
+JOIN chinook.albums ON chinook.tracks.albumid = chinook.albums.AlbumId;
