@@ -51,7 +51,7 @@ FROM
                 
 	
 -- Next we'll explore how many patients had uncontrolled htn (over 140/90) during the years prior to 2020. To do this we'll need to query the observations and patients table.
--- There were 31 patients total that had uncontrolled diabetes during the years prior to 2020. The query below breaks down by race the number of unique patients with uncontrolled HTN.
+-- There were 31 patients total that had uncontrolled htn during the years prior to 2020. The query below breaks down by race the number of unique patients with uncontrolled HTN.
 SELECT pt.race, 
 COUNT(DISTINCT pt.id) AS volume_by_race
 FROM healthcare.patients pt
